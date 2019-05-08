@@ -53,7 +53,7 @@ func createData(csize int) {
 	f.Write(lbytes)
 }
 
-func loadTestData(csize int) []int {
+func LoadTestData(csize int) []int {
 	fname := spew.Sprintf("../benchmark%d.data", csize)
 	data, err := ioutil.ReadFile(fname)
 	if err != nil {

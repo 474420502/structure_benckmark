@@ -5,13 +5,13 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 
-	"474420502.top/eson/structure/avldup"
-	"474420502.top/eson/structure/compare"
+	"github.com/474420502/focus/avldup"
+	"github.com/474420502/focus/compare"
 )
 
 func benchmarkremove(b *testing.B, size int, execCount int) {
 	tree := avldup.New(compare.Int)
-	l := loadTestData(size)
+	l := LoadTestData(size)
 
 	b.N = len(l) * execCount
 
@@ -45,7 +45,7 @@ func BenchmarkRemove(b *testing.B) {
 
 func benchmarkget(b *testing.B, size int, execCount int) {
 	tree := avldup.New(compare.Int)
-	l := loadTestData(size)
+	l := LoadTestData(size)
 
 	for _, v := range l {
 		tree.Put(v)
@@ -77,7 +77,7 @@ func BenchmarkGet(b *testing.B) {
 
 func benchmarkput(b *testing.B, size int, execCount int) {
 
-	l := loadTestData(size)
+	l := LoadTestData(size)
 	b.N = len(l) * execCount
 
 	b.ResetTimer()
